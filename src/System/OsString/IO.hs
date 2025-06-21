@@ -15,6 +15,8 @@ import System.IO (Handle, stdout)
 import System.IO qualified as IO
 import System.OsString qualified as OsString
 import System.OsString.Internal.Types (OsString (..))
+
+-- Constructors needed for coercions
 #if defined(mingw32_HOST_OS) || defined(__MINGW32__)
 import System.OsString.Internal.Types (WindowsString(..))
 #else
@@ -40,6 +42,7 @@ pin b =
             PM.copyByteArray dst 0 b 0 len
             PM.unsafeFreezeByteArray dst
 
+-- Trusting original byteslice impl
 touchByteArrayIO :: ByteArray -> IO ()
 touchByteArrayIO (ByteArray x) =
   IO (\s -> (# Exts.touch# x s, () #))
