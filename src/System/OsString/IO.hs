@@ -1,5 +1,4 @@
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MagicHash #-}
 {-# LANGUAGE UnboxedTuples #-}
 
@@ -12,12 +11,12 @@ import Data.ByteString.Short (ShortByteString (..))
 import Data.Coerce (coerce)
 import Data.Word (Word8)
 import GHC.Base (IO (..))
-import GHC.Exts qualified as Exts
+import qualified GHC.Exts as Exts
 import GHC.ST (ST (..), runST)
-import GHC.ST qualified
+import qualified GHC.ST
 import System.IO (Handle, stdout)
-import System.IO qualified as IO
-import System.OsString qualified as OsString
+import qualified System.IO as IO
+import qualified System.OsString as OsString
 import System.OsString.Internal.Types (OsString (..))
 
 -- Constructors needed for coercions
